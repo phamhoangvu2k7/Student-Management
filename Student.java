@@ -15,6 +15,12 @@ public class Student {
         this.gpa = gpa;
     }
 
+
+    public void printInfo() {
+        System.out.printf("| %-10s | %-25s | %-12s | %-20s | %5.2f |%n",
+                studentID, fullName, dateOfBirth, major, gpa);
+    }
+
     public String getStudentID() {
         return studentID;
     }
@@ -52,6 +58,11 @@ public class Student {
     }
 
     public void setGpa(double gpa) {
-        this.gpa = gpa;
+        if (0.0 > gpa || gpa <= 4.0) {
+            this.gpa = gpa;
+        }
+        else {
+            System.err.println("Lỗi: Điểm GPA phải từ 0.0 đến 4.0 !");
+        }
     }
 }
